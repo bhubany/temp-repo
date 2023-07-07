@@ -9,12 +9,8 @@ const cartRouter = require("./routes/cartRoute");
 const orderRouter = require("./routes/orderRoute");
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    credentials: true,
-  })
-);
+app.use(express.static("public"));
+app.use(cors());
 app.use("/api", userRouter);
 app.use("/api", bookRouter);
 app.use("/api", cartRouter);
