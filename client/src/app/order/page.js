@@ -1,7 +1,13 @@
 "use client";
-
+import { useState } from "react";
 import Link from "next/link";
+
 function PlaceOrder() {
+  const [country, setCountry] = useState("");
+  const [location, setLocation] = useState("");
+  const [city, setCity] = useState("");
+  const [paymentCharge, setPaymentCharge] = useState("");
+  const [contact, setContact] = useState("");
   return (
     <>
       <div>Place Your order</div>
@@ -57,11 +63,11 @@ function PlaceOrder() {
             </div>
             <div className="mb-4">
               <label htmlFor="contact" className="block mb-1 text-black">
-                Shipment Status
+                Set Contact Details
               </label>
               <input
                 type="shipmentstatus"
-                value={shiptmentstatus}
+                value={contact}
                 onChange={(e) => setContact(e.target.value)}
                 className="w-full border border-gray-300 px-3 py-2 rounded"
               />
