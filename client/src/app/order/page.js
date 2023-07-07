@@ -1,3 +1,5 @@
+"use client";
+
 function PlaceOrder() {
   return (
     <>
