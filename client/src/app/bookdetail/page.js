@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-function bookdetail() {
+function Bookdetail() {
   const [book, setBook] = useState(null);
   const searchParams = useSearchParams();
   const bookId = searchParams.get("bookId");
@@ -49,4 +49,4 @@ function bookdetail() {
     </>
   );
 }
-export default bookdetail;
+export default Bookdetail;
