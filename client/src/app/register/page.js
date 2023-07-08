@@ -21,7 +21,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8000/api/user/adduser", {
+      const res = await fetch(`${process.env.API_BASE_URL}/api/user/adduser`, {
         method: "POST",
         headers: {
           Accept: "application/json",

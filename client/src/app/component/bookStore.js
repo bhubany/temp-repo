@@ -11,7 +11,7 @@ function BookStore() {
 
   useEffect(() => {
     const store = async () => {
-      const res = await fetch("http://localhost:8000/api/book");
+      const res = await fetch(`${process.env.API_BASE_URL}/api/book`);
       const data = await res.json();
 
       setallBook(data);
@@ -32,7 +32,7 @@ function BookStore() {
               >
                 <Image
                   className={img ? "cursor-pointer" : "cursor-progress"}
-                  src=""
+                  src={`${process.env.API_BASE_URL}/${book.image}`}
                   alt="Picture of the Book"
                   width={200}
                   height={400}

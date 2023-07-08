@@ -12,7 +12,9 @@ function Bookdetail() {
   useEffect(() => {
     const store = async () => {
       if (bookId) {
-        const res = await fetch(`http://localhost:8000/api/book/${bookId}`);
+        const res = await fetch(
+          `${process.env.API_BASE_URL}/api/book/${bookId}`
+        );
         const data = await res.json();
         setBook(data);
       }
@@ -28,7 +30,7 @@ function Bookdetail() {
 
           <Image
             className={img ? "cursor-pointer" : "cursor-progress"}
-            src={book?.image}
+            src={`${process.env.API_BASE_URL}/${book.image}`}
             alt="Picture of the Book"
             width={200}
             height={400}
