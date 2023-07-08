@@ -3,11 +3,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-// import getConfig from "next/config";
-
-// const { publicRuntimeConfig } = getConfig();
-
-const apiUrl = process.env.API_BASE_URL;
 
 function BookStore() {
   const router = useRouter();
