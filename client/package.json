@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "echo 'no build'",
+    "build:temp": "echo 'no build'",
+    "build": "next build'",
     "start": "next start",
     "build:start": "index.html",
     "lint": "next lint"
