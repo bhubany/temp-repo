@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+// import getConfig from "next/config";
+
+// const { publicRuntimeConfig } = getConfig();
+
+// const apiUrl = publicRuntimeConfig.apiUrl;
 
 function Bookdetail() {
   const [book, setBook] = useState(null);
@@ -13,7 +18,7 @@ function Bookdetail() {
     const store = async () => {
       if (bookId) {
         const res = await fetch(
-          `${process.env.API_BASE_URL}/api/book/${bookId}`
+          `https://server-gmxf.onrender.com/api/book/${bookId}`
         );
         const data = await res.json();
         setBook(data);
@@ -30,7 +35,7 @@ function Bookdetail() {
 
           <Image
             className={img ? "cursor-pointer" : "cursor-progress"}
-            src={`${process.env.API_BASE_URL}/${book.image}`}
+            src={`https://server-gmxf.onrender.com/${book.image}`}
             alt="Picture of the Book"
             width={200}
             height={400}

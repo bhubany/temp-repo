@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import UserContext from "../../userContext";
+// import getConfig from "next/config";
+
+// const { publicRuntimeConfig } = getConfig();
+
+// const apiUrl = publicRuntimeConfig.apiUrl;
 
 function Register() {
   const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
@@ -21,14 +26,23 @@ function Register() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${process.env.API_BASE_URL}/api/user/adduser`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ firstName, lastName, email, password, contact }),
-      });
+      const res = await fetch(
+        `https://server-gmxf.onrender.com/api/user/adduser`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            contact,
+          }),
+        }
+      );
       console.log("res after api hit", res);
       if (res.status === 200) {
         console.log("Registration successful!");

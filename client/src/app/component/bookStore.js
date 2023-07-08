@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+// import getConfig from "next/config";
+
+// const { publicRuntimeConfig } = getConfig();
+
+const apiUrl = process.env.API_BASE_URL;
 
 function BookStore() {
   const router = useRouter();
@@ -11,7 +16,7 @@ function BookStore() {
 
   useEffect(() => {
     const store = async () => {
-      const res = await fetch(`${process.env.API_BASE_URL}/api/book`);
+      const res = await fetch(`https://server-gmxf.onrender.com/api/book`);
       const data = await res.json();
 
       setallBook(data);
@@ -32,7 +37,7 @@ function BookStore() {
               >
                 <Image
                   className={img ? "cursor-pointer" : "cursor-progress"}
-                  src={`${process.env.API_BASE_URL}/${book.image}`}
+                  src={`https://server-gmxf.onrender.com/${book.image}`}
                   alt="Picture of the Book"
                   width={200}
                   height={400}

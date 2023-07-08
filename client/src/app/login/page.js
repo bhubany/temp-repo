@@ -3,6 +3,11 @@ import { useState, useContext } from "react";
 import Link from "next/link";
 import UserContext from "../../userContext";
 import { useRouter } from "next/navigation";
+// import getConfig from "next/config";
+
+// const { publicRuntimeConfig } = getConfig();
+
+// const apiUrl = publicRuntimeConfig.apiUrl;
 
 function Login() {
   const router = useRouter();
@@ -23,14 +28,17 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${process.env.API_BASE_URL}/api/user/signin`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        `https://server-gmxf.onrender.com/api/user/signin`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (res.status === 200) {
         setIsUserLoggedIn(true);
