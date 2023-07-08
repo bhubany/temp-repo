@@ -15,7 +15,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run seed && node ./src/index.js",
-    "seed": "node ./src/seeder.js"
+    "seed": "node ./src/seeder.js",
+    "build": "echo 'No build step'"
   },
   "keywords": [],
   "author": "",
