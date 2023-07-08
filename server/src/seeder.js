@@ -1,19 +1,15 @@
 const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
-const uri = process.env.MONGO_URL;
-const dbName = "Ecommerce_books";
-const collectionName = "books";
+const url = process.env.MONGO_URL;
+const client = new MongoClient(url);
+const database = "Ecommerce_books";
 
 const seedData = async () => {
-  const client = new MongoClient(uri, { useUnifiedTopology: true });
-
+  let con = await client.connect();
+  let db = con.db(database);
   try {
-    await client.connect();
-
-    const db = client.db(dbName);
-    const collection = db.collection(collectionName);
-
-    // Remove existing data
+    const collection = db.collection("books");
     await collection.deleteMany({});
 
     // Generate fake users
@@ -58,7 +54,7 @@ const seedData = async () => {
   } catch (error) {
     console.error("Error seeding data:", error);
   } finally {
-    await client.close();
+    con.close();
   }
 };
 seedData();
